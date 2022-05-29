@@ -1,40 +1,45 @@
-from addition import my_adder as ADD
-from subtraction import my_subtractor as SUB
-from multiplication import my_multiplier as MULT
-from division import my_divider as DIV
+import helpers.addition as add
+from helpers.addition import my_adder as add
+import helpers.subtraction as sub
+from helpers.subtraction import my_subtractor as sub
+import helpers.multiplication as mult
+from helpers.multiplication import my_multiplier as mult
+import helpers.division as div
+from helpers.division import my_divider as div
+import helpers.welcome as greeting
 
-# import addition
-# import subtraction
-# import multiplication
-# import division
 
-print("Select Operation")
 
-print("1) Add")
-print("2) Subtract")
-print("3) Multiply")
-print("4) Divide")
-print("Please enter your selection: ")
 
-userselection = input("Enter Selection( '1', '2', '3', '4'): ")
+greeting.welcome()
 
-print("Please enter your first number: ")
-num1 = float(input("Selection: "))
+def calc():
+    print("List of Operations")
 
-print("Please enter your second number: ")
-num2 = float(input("your selection here: "))
+    print("1) Add")
+    print("2) Subtract")
+    print("3) Multiply")
+    print("4) Divide")
 
-if userselection == "1":
-    # print(addition.my_adder(num1, num2))
-    print(ADD)
-elif userselection == "2":
-    # print(subtraction.my_subtractor(num1, num2))
-    print(SUB)
-elif userselection == "3":
-    # print(multiplication.my_multiplier(num1, num2))
-    print(MULT)
-elif userselection == "4":
-    # print(division.my_divider(num1, num2))
-        print(DIV)
+    userselection = float(input(("Please select your operation('1', '2', '3', '4'): ")))
 
-print("Your Result: ")
+    num1 = float(input("Enter your first number here: "))
+    num2 = float(input("Enter your second number here: "))
+
+    if userselection == 1:
+        print(add(num1, num2))
+        
+    elif userselection == 2:
+        print(sub(num1, num2))
+        
+    elif userselection == 3:
+        print(mult(num1, num2))
+        
+    elif userselection == 4:
+        print(div(num1, num2))
+            
+    else:
+        (userselection < 1 and userselection > 5)
+        print("You have not selected an applicable operation")
+
+calc()
